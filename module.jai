@@ -28,11 +28,6 @@ DisassembleIntel :: (machine_mode : MachineMode, runtime_address : ZyanU64, buff
 	return status, instr;
 }
 
-Success :: (status : ZydisStatus) -> bool
-{
-	return status == 0;
-}
-
 
 GetInstructionString :: (instruction : DisassembledInstruction) -> string
 {
@@ -45,3 +40,4 @@ GetInstructionString :: (instruction : DisassembledInstruction) -> string
 #scope_file
 
 #import "String";
+#import "Basic";
