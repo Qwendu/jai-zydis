@@ -27,3 +27,21 @@ DisassembleIntel :: (machine_mode : MachineMode, runtime_address : ZyanU64, buff
 	status := DisassembleIntel(machine_mode, runtime_address, buffer.data, cast(u64) buffer.count, *instr);
 	return status, instr;
 }
+
+Success :: (status : ZydisStatus) -> bool
+{
+	return status == 0;
+}
+
+
+GetInstructionString :: (instruction : DisassembledInstruction) -> string
+{
+	str := to_string(instruction.text);
+	found, begin, _ := split_from_left(str, #char "\0");
+	return begin;
+}
+
+
+#scope_file
+
+#import "String";
