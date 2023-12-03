@@ -31,7 +31,7 @@ DisassembleIntel :: (machine_mode : MachineMode, runtime_address : ZyanU64, buff
 
 GetInstructionString :: (instruction : DisassembledInstruction) -> string
 {
-	str := to_string(instruction.text);
+	str := cast(string)instruction.text;
 	found, begin, _ := split_from_left(str, #char "\0");
 	return begin;
 }
